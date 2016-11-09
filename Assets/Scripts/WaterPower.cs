@@ -6,6 +6,8 @@ public class WaterPower : MonoBehaviour {
 
 	public GameObject waterParticleSystem;
 	private ParticleSystem particleSystem;
+
+	//Also see particle system setting: start lifetime
 	public const float TIME_ACTIVE = 1f;
 
 	//http://answers.unity3d.com/questions/225213/c-countdown-timer.html
@@ -14,9 +16,8 @@ public class WaterPower : MonoBehaviour {
 	private bool waterIsActive;
 
 
-	//TODO: also make a way to have the particles be independent to the rotation of the blob
-	// This can be done by: create a particle system in front of the blob instead of always using the same one!
-	//TODO: Make a way to have particles emitted when mouse down and stop when not pushing button.
+	//TODO: Create a particle system in front of the blob instead of always using the same one?
+	//This will allow multiple water particle systems to exist
 
 	// Use this for initialization
 	void Start () {
@@ -32,7 +33,7 @@ public class WaterPower : MonoBehaviour {
 	void Update () {
 	
 		//if button pushed and blob in a state where it can use water
-		if (Input.GetButtonDown ("WaterPower") && canUseWater) {
+		if (Input.GetButton("WaterPower") && canUseWater) {
 
 			timeLeft = TIME_ACTIVE;
 
